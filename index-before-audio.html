@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Một ngày làm công dân</title>
+  <meta name="description" content="Triển lãm số tương tác về nội dung và phương hướng dân chủ xã hội chủ nghĩa ở Việt Nam giai đoạn hiện nay." />
+  <style>
+    :root{
+      --ink:#0b2143;--ink2:#173968;--paper:#f6f8fb;--card:#ffffff;--muted:#60708a;
+      --red:#d71920;--gold:#f4b942;--blue:#1a73e8;--line:#dfe7f2;--ok:#138a54;--bad:#b42318;
+      --shadow:0 18px 50px rgba(18,40,74,.12);--radius:26px;
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.65}
+    button,a{font:inherit} a{text-decoration:none;color:inherit}.wrap{width:min(1180px,92%);margin:auto}
+    .topbar{position:fixed;z-index:30;top:0;left:0;right:0;background:rgba(246,248,251,.9);backdrop-filter:blur(14px);border-bottom:1px solid rgba(11,33,67,.08)}
+    .topbar .wrap{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:900;letter-spacing:.02em}.brand span{color:var(--red)}
+    .nav{display:flex;gap:8px;flex-wrap:wrap}.nav a{padding:9px 12px;border-radius:999px;font-size:14px;color:var(--muted)}.nav a:hover{background:#fff;color:var(--ink)}
+    .hero{min-height:100vh;padding:110px 0 58px;display:grid;place-items:center;background:radial-gradient(circle at 75% 20%,#dceafd 0,transparent 35%),linear-gradient(135deg,#f8fbff,#eef4fb 60%,#fff7ef)}
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}.eyebrow{display:inline-flex;gap:10px;align-items:center;background:#fff;border:1px solid var(--line);padding:8px 12px;border-radius:999px;font-weight:700;color:var(--ink2);box-shadow:0 8px 25px rgba(18,40,74,.06)}
+    .dot{width:9px;height:9px;border-radius:50%;background:var(--red);box-shadow:0 0 0 6px rgba(215,25,32,.1)}h1{font-size:clamp(46px,7vw,88px);line-height:.98;margin:24px 0 20px;letter-spacing:-.045em}.hero p{font-size:20px;color:var(--muted);max-width:650px}.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{border:0;border-radius:16px;padding:14px 20px;font-weight:800;cursor:pointer;transition:.22s transform,.22s box-shadow}.btn:hover{transform:translateY(-2px)}.btn.primary{color:#fff;background:linear-gradient(135deg,var(--red),#b10d13);box-shadow:0 12px 30px rgba(215,25,32,.25)}.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+    .hero-card{position:relative;border-radius:34px;overflow:hidden;box-shadow:var(--shadow);background:#fff;min-height:590px}.hero-card img{width:100%;height:100%;object-fit:cover;display:block;min-height:590px}.hero-card:after{content:"";position:absolute;inset:auto 0 0;height:35%;background:linear-gradient(transparent,rgba(7,25,50,.75))}.hero-tag{position:absolute;z-index:2;left:22px;bottom:22px;color:#fff}.hero-tag strong{display:block;font-size:25px}.hero-tag span{opacity:.86}
+    section{padding:94px 0}.section-head{display:grid;grid-template-columns:140px 1fr;gap:26px;align-items:start;margin-bottom:34px}.num{font-weight:900;color:var(--red);font-size:70px;line-height:1}.kicker{font-weight:800;text-transform:uppercase;letter-spacing:.11em;color:var(--red);font-size:13px}.section-head h2{font-size:clamp(34px,5vw,56px);line-height:1.05;margin:8px 0 10px}.lead{color:var(--muted);font-size:18px;max-width:820px}
+    .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:0 10px 28px rgba(18,40,74,.06);transition:.25s}.card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}.icon{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;font-size:26px;background:#eef5ff;margin-bottom:18px}.card h3{margin:0 0 8px;font-size:23px}.card p{margin:0;color:var(--muted)}
+    .definition{display:grid;grid-template-columns:1fr 1fr;gap:20px}.big-quote{padding:36px;border-radius:30px;background:linear-gradient(135deg,#0b2143,#173968);color:#fff;box-shadow:var(--shadow)}.big-quote .small{opacity:.72;text-transform:uppercase;font-size:13px;font-weight:800;letter-spacing:.12em}.big-quote .quote{font-size:clamp(30px,4vw,48px);line-height:1.12;font-weight:900;margin-top:18px}.arrowline{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:24px}.pill{background:#fff;color:var(--ink);padding:9px 13px;border-radius:999px;font-weight:800}.arrow{opacity:.55}
+    .realm{min-height:280px;position:relative;overflow:hidden}.realm:before{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-30px;top:-35px;background:linear-gradient(135deg,rgba(26,115,232,.12),rgba(244,185,66,.18))}.realm .bigicon{font-size:48px;margin-bottom:50px}.tag{display:inline-block;padding:6px 10px;border-radius:999px;background:#eef4fb;font-size:12px;font-weight:800;color:var(--ink2);margin-top:14px}
+    .steps .card{padding:22px}.steps .stepno{font-size:13px;font-weight:900;color:var(--red);margin-bottom:8px}.steps h3{font-size:18px}.steps p{font-size:14px}
+    .balance{display:grid;grid-template-columns:1fr 160px 1fr;gap:18px;align-items:stretch}.balance-side{background:#fff;border:1px solid var(--line);border-radius:30px;padding:34px}.balance-side h3{font-size:36px;margin:8px 0}.balance-center{display:grid;place-items:center;text-align:center;background:linear-gradient(180deg,#fff9e6,#fff);border:1px solid #f2dfab;border-radius:30px;padding:16px}.scale{font-size:68px}.law{font-weight:900;font-size:14px;color:#7a5a00}.balance-note{margin-top:22px;padding:18px 20px;border-left:4px solid var(--gold);background:#fffaf0;border-radius:14px;color:#624d1f}
+    .quiz-shell{background:#0b2143;color:#fff;border-radius:34px;padding:32px;box-shadow:var(--shadow)}.quiz-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px}.progress{height:8px;background:rgba(255,255,255,.15);border-radius:999px;overflow:hidden}.progress>span{display:block;height:100%;width:20%;background:linear-gradient(90deg,var(--gold),#ffe08b);transition:.3s}.qbox{margin-top:26px}.qbox h3{font-size:clamp(24px,3.5vw,38px);line-height:1.2}.answers{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}.answer{border:1px solid rgba(255,255,255,.2);color:#fff;background:rgba(255,255,255,.07);border-radius:18px;padding:16px;text-align:left;cursor:pointer;transition:.2s}.answer:hover{background:rgba(255,255,255,.13)}.answer.selected{outline:3px solid rgba(244,185,66,.75)}.answer.correct{background:rgba(19,138,84,.35);border-color:#56d59a}.answer.wrong{background:rgba(180,35,24,.35);border-color:#ff8d82}.explain{display:none;margin-top:18px;background:rgba(255,255,255,.09);padding:16px;border-radius:16px}.quiz-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:18px}.quiz-actions .btn{padding:11px 16px}.quiz-actions .btn:disabled{opacity:.45;cursor:not-allowed;transform:none}.result{display:none;text-align:center;padding:34px 10px}.score{font-size:72px;font-weight:900;color:var(--gold)}
+    .finale{padding:0 0 90px}.finale-card{position:relative;overflow:hidden;min-height:620px;border-radius:36px}.finale-card img{width:100%;height:620px;object-fit:cover;display:block}.finale-card:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,20,44,.87),rgba(5,20,44,.35) 60%,transparent)}.finale-text{position:absolute;z-index:2;left:6%;top:50%;transform:translateY(-50%);color:#fff;max-width:640px}.finale-text h2{font-size:clamp(42px,6vw,78px);line-height:1.02;margin:0 0 18px}.finale-text p{font-size:22px;opacity:.9}.quote-end{margin-top:24px;font-size:28px;font-weight:900;color:#ffe08b}
+    footer{padding:28px 0 46px;color:#748199;text-align:center;font-size:14px}.reveal{opacity:0;transform:translateY(22px);transition:.7s ease}.reveal.show{opacity:1;transform:none}
+    @media(max-width:960px){.nav{display:none}.hero-grid,.definition,.grid3,.balance{grid-template-columns:1fr}.grid5{grid-template-columns:1fr 1fr}.section-head{grid-template-columns:1fr}.num{font-size:46px}.hero-card,.hero-card img{min-height:460px}.balance-center{min-height:160px}.answers{grid-template-columns:1fr}}
+    @media(max-width:620px){.grid2,.grid5{grid-template-columns:1fr}.hero{padding-top:92px}.hero-grid{gap:24px}.hero-card,.hero-card img{min-height:390px}section{padding:72px 0}.quiz-shell{padding:22px}.finale-card,.finale-card img{height:600px}.finale-text{left:8%;right:8%}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <div class="brand">MỘT NGÀY LÀM <span>CÔNG DÂN</span></div>
+      <nav class="nav" aria-label="Điều hướng">
+        <a href="#khu1">Khu 1</a><a href="#khu2">Khu 2</a><a href="#khu3">Khu 3</a><a href="#khu4">Khu 4</a><a href="#khu5">Thử thách</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> TRIỂN LÃM SỐ TƯƠNG TÁC</div>
+          <h1>Một ngày<br>làm công dân</h1>
+          <p>Dân chủ có thực sự ở đâu đó rất xa chúng ta? Hãy cùng Minh đi qua 5 khu trải nghiệm để nhìn thấy quyền làm chủ trong đời sống hằng ngày.</p>
+          <div class="cta-row"><a class="btn primary" href="#khu1">Bắt đầu hành trình ↓</a><a class="btn ghost" href="#khu5">Đi thẳng đến thử thách</a></div>
+        </div>
+        <div class="hero-card reveal">
+          <img src="assets/minh-digital.png" alt="Minh - sinh viên trẻ trong không gian đô thị và công nghệ số" />
+          <div class="hero-tag"><strong>Minh, 21 tuổi</strong><span>Một công dân trẻ trong đời sống hiện đại</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="khu1">
+      <div class="wrap">
+        <div class="section-head reveal"><div class="num">01</div><div><div class="kicker">Khu 1 · Nền tảng</div><h2>Dân chủ là gì?</h2><p class="lead">Theo nội dung bài học, dân chủ được hiểu khái quát là quyền lực thuộc về nhân dân. Quyền làm chủ cần được thể chế hóa và thực hiện bằng các cơ chế cụ thể.</p></div></div>
+        <div class="definition">
+          <div class="big-quote reveal"><div class="small">Khái niệm cốt lõi</div><div class="quote">“Quyền lực thuộc về nhân dân.”</div><div class="arrowline"><span class="pill">NHÂN DÂN</span><span class="arrow">→</span><span class="pill">THAM GIA</span><span class="arrow">→</span><span class="pill">QUYỀN LÀM CHỦ</span></div></div>
+          <div class="grid2">
+            <article class="card reveal"><div class="icon">🗳️</div><h3>Dân chủ trực tiếp</h3><p>Nhân dân trực tiếp tham gia vào những hình thức thực hiện quyền làm chủ theo khuôn khổ pháp luật.</p></article>
+            <article class="card reveal"><div class="icon">🏛️</div><h3>Dân chủ đại diện</h3><p>Nhân dân thực hiện quyền lực thông qua các cơ quan đại diện và những thiết chế được pháp luật quy định.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="khu2" style="background:#eef4fb">
+      <div class="wrap">
+        <div class="section-head reveal"><div class="num">02</div><div><div class="kicker">Khu 2 · Ba phương diện</div><h2>Dân chủ hiện diện ở đâu?</h2><p class="lead">Bản chất của nền dân chủ xã hội chủ nghĩa trong bài được thể hiện tập trung trên ba phương diện có quan hệ chặt chẽ với nhau.</p></div></div>
+        <div class="grid3">
+          <article class="card realm reveal"><div class="bigicon">🏛️</div><h3>Chính trị</h3><p>Nhân dân là chủ thể của quyền lực; tham gia quản lý nhà nước và xã hội, đóng góp ý kiến và giám sát hoạt động công quyền.</p><span class="tag">THAM GIA · GIÁM SÁT</span></article>
+          <article class="card realm reveal"><div class="bigicon">📈</div><h3>Kinh tế</h3><p>Bảo đảm quyền và lợi ích kinh tế hợp pháp, tạo điều kiện để người dân tham gia hoạt động kinh tế và hưởng thành quả phát triển.</p><span class="tag">QUYỀN LỢI · PHÁT TRIỂN</span></article>
+          <article class="card realm reveal"><div class="bigicon">📚</div><h3>Tư tưởng · Văn hóa · Xã hội</h3><p>Bảo đảm quyền học tập, tiếp cận văn hóa, phát triển năng lực và tham gia đời sống văn hóa, xã hội.</p><span class="tag">HỌC TẬP · CỘNG ĐỒNG</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="khu3">
+      <div class="wrap">
+        <div class="section-head reveal"><div class="num">03</div><div><div class="kicker">Khu 3 · Xây dựng và hoàn thiện</div><h2>Quyền làm chủ được bảo đảm thế nào?</h2><p class="lead">Để quyền làm chủ được thực hiện trong thực tế, bài học nhấn mạnh nhiều nhiệm vụ phải được triển khai đồng bộ.</p></div></div>
+        <div class="grid5 steps">
+          <article class="card reveal"><div class="stepno">01</div><h3>Hoàn thiện thể chế kinh tế</h3><p>Gắn phát triển kinh tế với quyền, lợi ích hợp pháp và tiến bộ, công bằng xã hội.</p></article>
+          <article class="card reveal"><div class="stepno">02</div><h3>Xây dựng Đảng trong sạch, vững mạnh</h3><p>Đổi mới phương thức lãnh đạo, tăng cường tự phê bình, phòng chống tham nhũng, tiêu cực.</p></article>
+          <article class="card reveal"><div class="stepno">03</div><h3>Hoàn thiện Nhà nước pháp quyền XHCN</h3><p>Tổ chức và hoạt động trên cơ sở Hiến pháp, pháp luật; bảo đảm quyền con người và quyền công dân.</p></article>
+          <article class="card reveal"><div class="stepno">04</div><h3>Phát huy tổ chức chính trị – xã hội</h3><p>Tập hợp, đại diện, bảo vệ lợi ích hợp pháp và là kênh để nhân dân tham gia, phản biện.</p></article>
+          <article class="card reveal"><div class="stepno">05</div><h3>Tăng cường giám sát, phản biện xã hội</h3><p>Công khai, minh bạch và tạo điều kiện để nhân dân kiểm tra, giám sát việc thực hiện quyền lực.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="khu4" style="background:#fff9ee">
+      <div class="wrap">
+        <div class="section-head reveal"><div class="num">04</div><div><div class="kicker">Khu 4 · Nguyên tắc</div><h2>Quyền đi cùng trách nhiệm</h2><p class="lead">Dân chủ không có nghĩa là không có giới hạn. Việc thực hiện quyền phải gắn với pháp luật, kỷ luật, kỷ cương và tôn trọng quyền hợp pháp của người khác.</p></div></div>
+        <div class="balance reveal">
+          <div class="balance-side"><div class="icon">🙋</div><h3>QUYỀN</h3><p>Được tham gia, đóng góp ý kiến, tiếp cận thông tin, học tập, phát triển và thực hiện các quyền công dân theo pháp luật.</p></div>
+          <div class="balance-center"><div class="scale">⚖️</div><div class="law">HIẾN PHÁP<br>& PHÁP LUẬT</div></div>
+          <div class="balance-side"><div class="icon">🤝</div><h3>TRÁCH NHIỆM</h3><p>Tôn trọng pháp luật, cộng đồng và quyền lợi hợp pháp của người khác; sử dụng quyền làm chủ một cách có trách nhiệm.</p></div>
+        </div>
+        <div class="balance-note reveal"><strong>Gợi ý suy nghĩ:</strong> Một nền dân chủ có ý nghĩa khi quyền của công dân được bảo đảm trong thực tế đồng thời gắn với trách nhiệm đối với cộng đồng và xã hội.</div>
+      </div>
+    </section>
+
+    <section id="khu5">
+      <div class="wrap">
+        <div class="section-head reveal"><div class="num">05</div><div><div class="kicker">Khu 5 · Thử thách công dân</div><h2>Bạn nhớ được bao nhiêu?</h2><p class="lead">Chọn một đáp án cho từng câu. Website sẽ tự chấm điểm và giải thích ngay sau khi bạn trả lời.</p></div></div>
+        <div class="quiz-shell reveal">
+          <div id="quizView">
+            <div class="quiz-top"><strong id="qCount">Câu 1 / 5</strong><span id="scoreMini">Điểm: 0</span></div>
+            <div class="progress"><span id="bar"></span></div>
+            <div class="qbox"><h3 id="qText"></h3><div class="answers" id="answers"></div><div class="explain" id="explain"></div></div>
+            <div class="quiz-actions"><button class="btn ghost" id="nextBtn" disabled>Câu tiếp theo →</button></div>
+          </div>
+          <div class="result" id="result"><div class="score" id="finalScore">0/5</div><h3>Hoàn thành thử thách!</h3><p id="resultText"></p><button class="btn primary" id="restartBtn">Làm lại</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="finale">
+      <div class="wrap">
+        <div class="finale-card reveal"><img src="assets/minh-ending.png" alt="Minh nhìn thành phố Việt Nam trong ánh hoàng hôn" /><div class="finale-text"><div class="kicker" style="color:#ffe08b">Điểm cuối hành trình</div><h2>Dân chủ hiện diện trong đời sống.</h2><p>Không chỉ là quyền được nói, mà còn là quyền được tham gia, được giám sát và trách nhiệm với cộng đồng.</p><div class="quote-end">“Quyền làm chủ bắt đầu từ chính mỗi chúng ta.”</div></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap">NHÓM 2 · MLN131 · Sản phẩm triển lãm số “Một ngày làm công dân”</div></footer>
+
+  <script>
+    const quiz=[
+      {q:'Theo nội dung bài học, dân chủ được hiểu theo nghĩa khái quát là gì?',a:['Quyền lực thuộc về Nhà nước','Quyền lực thuộc về nhân dân','Quyền lực thuộc về các tổ chức xã hội','Mỗi cá nhân có quyền làm bất cứ điều gì'],c:1,e:'Dân chủ được hiểu khái quát là quyền lực thuộc về nhân dân; nhân dân là chủ thể của quyền lực.'},
+      {q:'Trong nền dân chủ xã hội chủ nghĩa ở Việt Nam, nhân dân thực hiện quyền lực bằng những hình thức nào?',a:['Chỉ dân chủ trực tiếp','Chỉ dân chủ đại diện','Dân chủ trực tiếp và dân chủ đại diện','Chỉ thông qua các tổ chức kinh tế'],c:2,e:'Quyền làm chủ của nhân dân được thực hiện thông qua dân chủ trực tiếp và dân chủ đại diện.'},
+      {q:'Bản chất của nền dân chủ xã hội chủ nghĩa trong bài được thể hiện tập trung trên những phương diện nào?',a:['Chính trị; kinh tế; tư tưởng – văn hóa – xã hội','Kinh tế; quốc phòng; đối ngoại','Chính trị; công nghệ; môi trường','Văn hóa; quốc phòng; kinh tế'],c:0,e:'Bài tập trung vào ba phương diện: chính trị, kinh tế và tư tưởng – văn hóa – xã hội.'},
+      {q:'Nội dung nào phù hợp với phương hướng hoàn thiện nền dân chủ xã hội chủ nghĩa hiện nay?',a:['Tách dân chủ khỏi pháp luật và kỷ cương','Tăng cường công khai, minh bạch','Hạn chế sự tham gia của người dân','Chỉ tập trung vào phát triển kinh tế'],c:1,e:'Công khai và minh bạch tạo điều kiện để người dân tiếp cận thông tin, tham gia quản lý và thực hiện quyền giám sát.'},
+      {q:'Đối với mỗi công dân, cách thực hiện quyền làm chủ phù hợp nhất là gì?',a:['Chỉ quan tâm đến quyền lợi cá nhân','Không cần quan tâm đến các vấn đề của cộng đồng','Thực hiện quyền mà không cần quan tâm đến pháp luật','Hiểu quyền và nghĩa vụ, tôn trọng pháp luật và chủ động tham gia đời sống xã hội'],c:3,e:'Quyền làm chủ luôn gắn với trách nhiệm công dân, tôn trọng Hiến pháp, pháp luật và trách nhiệm với cộng đồng.'}
+    ];
+    let idx=0,score=0,locked=false;
+    const qText=document.getElementById('qText'),answers=document.getElementById('answers'),explain=document.getElementById('explain'),nextBtn=document.getElementById('nextBtn'),bar=document.getElementById('bar'),qCount=document.getElementById('qCount'),scoreMini=document.getElementById('scoreMini');
+    function render(){locked=false;nextBtn.disabled=true;explain.style.display='none';const item=quiz[idx];qText.textContent=item.q;answers.innerHTML='';qCount.textContent=`Câu ${idx+1} / ${quiz.length}`;bar.style.width=`${((idx+1)/quiz.length)*100}%`;item.a.forEach((txt,i)=>{const b=document.createElement('button');b.className='answer';b.textContent=`${String.fromCharCode(65+i)}. ${txt}`;b.onclick=()=>choose(i,b);answers.appendChild(b)});}
+    function choose(i,b){if(locked)return;locked=true;const item=quiz[idx];[...answers.children].forEach((el,j)=>{if(j===item.c)el.classList.add('correct');if(j===i&&i!==item.c)el.classList.add('wrong')});if(i===item.c){score++;scoreMini.textContent=`Điểm: ${score}`;} explain.textContent=item.e;explain.style.display='block';nextBtn.disabled=false;nextBtn.textContent=idx===quiz.length-1?'Xem kết quả →':'Câu tiếp theo →';}
+    nextBtn.onclick=()=>{if(idx<quiz.length-1){idx++;render()}else{document.getElementById('quizView').style.display='none';const r=document.getElementById('result');r.style.display='block';document.getElementById('finalScore').textContent=`${score}/5`;document.getElementById('resultText').textContent=score===5?'Xuất sắc! Bạn đã nắm rất chắc nội dung của hành trình.':score>=3?'Khá tốt! Bạn đã nắm được phần lớn nội dung chính.':'Bạn có thể xem lại 4 khu đầu rồi thử lại một lần nữa.';}};
+    document.getElementById('restartBtn').onclick=()=>{idx=0;score=0;scoreMini.textContent='Điểm: 0';document.getElementById('result').style.display='none';document.getElementById('quizView').style.display='block';render();};render();
+    const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  </script>
+</body>
+</html>
